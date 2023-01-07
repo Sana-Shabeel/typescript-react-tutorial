@@ -17,6 +17,8 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
       className="input"
       onSubmit={(e) => {
         handleAdd(e);
+
+        // remove focus from the input element after submitting
         inputRef.current?.blur();
       }}
     >
