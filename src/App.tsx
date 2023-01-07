@@ -5,13 +5,18 @@ import { Todo } from "./model";
 
 function App() {
   const [todo, setTodo] = useState<string>("");
-
   const [todos, setTodos] = useState<Todo[]>([]);
+
+  const handleAdd = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    console.log(todo);
+  };
 
   return (
     <div className="App">
       <span className="heading">Taskify</span>
-      <InputField todo={todo} setTodo={setTodo} />
+      <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
     </div>
   );
 }
