@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import InputField from "./components/InputField";
+import TodoList from "./components/TodoList";
 import { Todo } from "./model";
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (todo) {
+    if (todo.trim()) {
       setTodos([...todos, { id: Date.now(), todo: todo, isDone: false }]);
       setTodo("");
     }
@@ -22,9 +23,7 @@ function App() {
       <span className="heading">Taskify</span>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
 
-      {todos.map((t) => (
-        <li>{t.todo}</li>
-      ))}
+      <TodoList />
     </div>
   );
 }
