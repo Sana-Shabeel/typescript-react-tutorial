@@ -1,6 +1,5 @@
 import React from "react";
 import { Todo } from "../model";
-// import { AiFilEdit } from "";
 import "./styles.css";
 
 interface Props {
@@ -11,10 +10,10 @@ interface Props {
 
 const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
   return (
-    <form>
-      <span>{todo.todo}</span>
+    <form className="todos__single">
+      <span className="todos__single-text">{todo.todo}</span>
 
-      <div className="">
+      <div>
         <span className="icon">✍️</span>
         <span className="icon">❌</span>
         <span className="icon">✔️</span>

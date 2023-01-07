@@ -30,7 +30,7 @@ const InputField = ({ todo, setTodo, handleAdd }: Props) => {
         onChange={(e) => setTodo(e.target.value)}
         className="input__box"
       />
-      <button className="input__submit" type="submit">
+      <button className="input_submit" type="submit">
         GO
       </button>
     </form>
