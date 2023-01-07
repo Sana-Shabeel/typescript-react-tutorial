@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
+import InputField from "./components/InputField";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>ANAS</h1>
-      </header>
+      <span className="heading">Taskify</span>
+      <InputField />
     </div>
   );
 }
