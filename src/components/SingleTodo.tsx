@@ -24,9 +24,21 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const handleSubmit = (e: React.FormEvent, id: number) => {
+    e.preventDefault();
+
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, todo: editTodo } : todo))
+    );
+
+    setEdit(false);
+  };
+
   return (
-    <form className="todos__single">
-      {todo.isDone ? (
+    <form className="todos__single" onSubmit={(e) => handleSubmit(e, todo.id)}>
+      {edit ? (
+        <input value={editTodo} onChange={(e) => setEditTodo(e.target.value)} />
+      ) : todo.isDone ? (
         // s is the strike tag
         <s className="todos__single-text">{todo.todo}</s>
       ) : (
